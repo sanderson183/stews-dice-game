@@ -1,0 +1,297 @@
+/*----------------------------------------------------*/
+/*            SASS Mixins and Variables               */
+/*----------------------------------------------------*/
+
+@mixin flex-column-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;}
+
+$myMint: #8FFFE4;
+$mainPadding: 20px;
+
+/*----------------------------------------------------*/
+/*                      HTML                          */
+/*----------------------------------------------------*/
+
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;}
+
+html {
+  font-family: 'Titillium Web', sans-serif;
+  color: white;
+  height: 100vh;
+  min-width: 350px;
+  background-image: linear-gradient(to right, $myMint 0%, $myMint 50%, white 50%, white 0%);}
+
+img {
+  max-width: 100%;
+  height: auto;}
+
+body {accent-color: #86BBD8;}
+
+main {
+  flex: 1;
+  max-width: 800px;
+  padding: $mainPadding;
+  margin: auto;}
+
+header {
+  color: black;
+  padding: $mainPadding;
+  width: 100%;}
+
+nav {
+  display: none;
+  margin-left: auto;
+
+  ul {
+    list-style: none;
+
+    li {
+      text-align: right;
+      line-height: 40px;
+      padding-right: 30px;
+
+      a{
+        color: black;
+        text-decoration: none;}
+
+      a:hover {
+        color: #FFE082;
+        transition: 0.2s;}
+
+      a:active {color: white;}
+    }
+  }
+}
+
+h1, h2, h3 {
+  color: black;
+  padding: $mainPadding;}
+
+section {margin: 15px;}
+p {padding: 10px;}
+li {padding: 10px;}
+
+footer {
+  @include flex-column-center();
+  color: black;
+  flex-shrink: 0;
+  width: 100%;
+  padding: 15px;
+  justify-content: space-evenly;
+  background-color: rgba(227, 227, 227, 0.22);}
+
+button {
+  font-family: 'Titillium Web', sans-serif;
+  font-size: 16px;
+  color: white;
+  background-color: black;
+  display: flex;
+  justify-content: space-around;
+  width: 200px;
+  line-height: 60px;
+  border: none;
+  border-radius: 3px;
+  margin: 10px;
+
+  img {
+    align-self: center;
+    width: 30px;
+  }
+}
+
+button:hover {
+  color: black;
+  background-color: white;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+button:active {
+  transform: scale(0.9);
+  background-color: black}
+
+/*----------------------------------------------------*/
+/*                CLASSES AND IDS                     */
+/*----------------------------------------------------*/
+
+.player {
+  @include flex-column-center();
+  padding: $mainPadding;
+  width: 100%;}
+
+.dice-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 160px;
+  padding: 30px 0 30px 0;
+  justify-content: space-evenly;}
+
+.dice {max-width: 40%;}
+
+.score {
+  @include flex-column-center();
+  font-size: 20px;
+  background-color: #FFE082;
+  border: 2px solid black;
+  border-radius: 3px;
+  width: 80px;
+  margin-top: 30px;}
+
+.header-bar {
+  height: 80px;
+  display: flex;}
+
+.menu-img {
+  background-color: transparent;
+  max-width: 30px;}
+
+.btn-menu {
+  @include flex-column-center();
+  background-color: transparent;
+  border: none;
+  margin-left: auto;
+  padding-right: 30px;}
+
+.sec-content {
+  @include flex-column-center();
+  width: 100%;
+  max-width: 1100px;
+  margin: auto;
+  color: black;
+  border-radius: 3px;
+  background-image: linear-gradient(to left, $myMint 0%, $myMint 50%, white 50%, white 0%);}
+
+.sec-header {
+  width: 100%;
+  color: black;}
+
+.blurred{
+  transition: 0.4s;
+  filter: blur(5px);}
+
+.show {display: block;}
+
+@keyframes bounce {
+  0% {transform: translateY(0);}
+  100% {transform: translateY(-10px);}
+}
+
+.bounce {
+  animation: bounce 0.15s;
+  animation-direction: alternate;
+  animation-iteration-count: 2;}
+
+.pop {
+  animation: pop .5s;
+  animation-direction: alternate;}
+
+@keyframes pop {
+  0% {transform: scale(1.1);}
+  100% {transform: scale(1);}
+}
+
+.disabled {
+  background-color: grey;
+  pointer-events: none;}
+
+.win-pop {
+  animation: win-pop .2s;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;}
+
+@keyframes win-pop{
+  0% {transform: scale(1.2);}
+  100% {transform: scale(1);}
+}
+
+#game-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  flex-direction: row;
+  width: 100%;}
+
+#blur-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;}
+
+#content {flex: 1 0 auto;}
+
+#button-div {
+  grid-column: 1 / span2;
+  padding: $mainPadding;
+  display: flex;
+  justify-content: center;}
+
+#roll {
+  padding: 5px 30px 5px 30px;
+  width: 180px;}
+
+#roll:hover {
+  color: black;
+  background-color: #F25757;}
+
+#roll #button-dice {filter: invert(1);}
+
+#roll:hover #button-dice {filter: invert(0);}
+
+#pop-up {
+  position: absolute;
+  left: 50%;
+  bottom: 50%;
+  transform:translate(-50%, 50%);
+  background-color: $myMint;
+  border: 2px solid black;
+  border-radius: 3px;
+  margin: 20px;
+  padding: $mainPadding;
+  transition: 0.5s;
+  opacity: 0;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+
+  h2 {text-align: center;}
+  img {padding: 10px}
+}
+
+/*----------------------------------------------------*/
+/*                 MEDIA QUERIES                      */
+/*----------------------------------------------------*/
+
+@media (max-width: 400px) {
+  h3 {font-size: 12px;}
+}
+
+@media (min-width: 500px) {
+
+  footer {
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding: 30px;}
+
+  .value {font-size: 24px;}
+
+  .score {
+    width: 140px;
+    font-size: 32px;}
+}
+
+@media (min-width: 700px) {
+
+  main {width: 85vw;}
+  nav {display: flex;}
+  nav ul {display: flex;}
+  nav ul li {padding: $mainPadding;}
+
+  .header-w-nav {display: flex;}
+  .btn-menu {display: none;}
+}
+

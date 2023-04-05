@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Final Project | Dice Game</title>
+        <link rel="icon" href="../img/dice-button.svg">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="../css/style.css">
+<!--        <script src="../js/jqueryv3.6.4.js" defer></script>-->
+        <script src="../js/scripts.js" defer></script>
+    </head>
+
+    <body>
+        <div id="blur-container">
+            <div id="content">
+                <header>
+                    <div class="header-w-nav">
+                        <div class="header-bar">
+                            <h1>Final Project</h1>
+                            <button class="btn-menu">
+                                <img class="menu-img" src="../img/menu-icon.png" alt="Menu Icon"/>
+                            </button>
+                        </div>
+                        <nav>
+                            <ul>
+                                <li><a href="#P1">Game</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </header>
+
+                <main>
+                    <h2 id="sec-header">Dice Game</h2>
+                    <section class="sec-content" id="P1">
+                        <div id="game-container">
+                            <div id="field-you" class="player">
+                                <h3>YOU</h3>
+                                <div class="dice-container">
+                                    <img class="dice" id="you-die-1" src="../img/dice-1.png" alt="dice">
+                                    <img class="dice" id="you-die-2" src="../img/dice-1.png" alt="dice">
+                                </div>
+                                <div class="value" >
+                                    <p id="your-value">0</p>
+                                </div>
+                                <div class="score" id="your-score-card">
+                                    <p>Score</p>
+                                    <p id="your-score"></p>
+                                </div>
+                            </div>
+                            <div id="field-opponent" class="player">
+                                <h3>OPPONENT</h3>
+                                <div class="dice-container">
+                                    <img class="dice" id="opp-die-1" src="../img/dice-1.png" alt="dice">
+                                    <img class="dice" id="opp-die-2" src="../img/dice-1.png" alt="dice">
+                                </div>
+                                <div class="value" >
+                                    <p id="opp-value">0</p>
+                                </div>
+                                <div class="score" id="opp-score-card">
+                                    <p>Score</p>
+                                    <p id="opp-score" ></p>
+                                </div>
+                            </div>
+                            <div id="button-div">
+                                <button id="roll">
+                                    ROLL!
+                                    <img id="button-dice" src="../img/dice-button.svg" alt="button dice">
+                                </button>
+                            </div>
+                        </div>
+                        <div id="blur-background"></div>
+                    </section>
+
+                </main>
+            </div>
+
+            <footer>
+                <p>Stewart Anderson</p>
+                <p>Final Project</p>
+                <p>COMP 2132</p>
+            </footer>
+
+        </div>
+        <div id="pop-up">
+            <div id="pop-up-content"></div>
+            <button id="play-again">Play Again!</button>
+        </div>
+    </body>
+</html>
